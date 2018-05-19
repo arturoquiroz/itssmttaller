@@ -1,0 +1,51 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.10.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'itsstm.taller'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+
+///////////////////original
+ // tag::jetty[]
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile("org.springframework.boot:spring-boot-starter-jetty")
+    // end::jetty[]
+    // tag::actuator[]
+    compile 'org.springframework.boot:spring-boot-configuration-processor:1.5.4.RELEASE'
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile files('./lib/mysql-connector-java-5.0.8-bin.jar')
+	
+	
+	compile group: 'org.springframework', name: 'spring-jdbc', version: '5.0.1.RELEASE'
+	
+	///////////////////original
+	
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
+	
+	
+	
+
+}
