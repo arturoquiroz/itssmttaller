@@ -1,6 +1,6 @@
 # itssmttaller
 Repositorio con los servicios solicitados completos y configuracion actualizada
-Se pueden realizar las siguientes operaciones
+se pueden realizar las siguientes operaciones
 
 Clientes
  - Almacenar
