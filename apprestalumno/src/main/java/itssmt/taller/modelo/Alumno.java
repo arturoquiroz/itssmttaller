@@ -7,7 +7,7 @@ public class Alumno {
 	private String apellidos;
 	private int idMaestro;
 	
-	
+/* Comentario de prueba*/	
 	
 	public int getIdAlumno() {
 		return idAlumno;
