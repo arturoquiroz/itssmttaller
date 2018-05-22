@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import itssmt.taller.controller.RestTemplateController;
 import itssmt.taller.dao.ITPedidoDao;
 import itssmt.taller.entity.TDetalle;
 import itssmt.taller.entity.TPedido;
@@ -27,7 +28,6 @@ public class PedidoService implements IPedidoService{
 		
 		TPedido tPedido = new TPedido();
 		tPedido.setCliente_Id(pedido.getCliente_id());
-		tPedido.setEstado(pedido.getEstado());
 		tPedido.setFecha(pedido.getFecha());
 		tPedido.setImporte(pedido.getImporte());
 		tPedido.setNo_pedido(pedido.getNo_pedido());
@@ -40,14 +40,16 @@ public class PedidoService implements IPedidoService{
 	@Override
 	public List<Pedido> getAll() {
 		List<Pedido> listaP = new ArrayList<>();
-		
+		RestTemplateController restTemplateController = new RestTemplateController();
 		try {
 			
 			List<TPedido> lista  = pedidoDao.findAll();
 			for (TPedido p : lista) {
 				Pedido pedido = new Pedido();
 				pedido.setCliente_id(p.getCliente_Id());
-				pedido.setEstado(p.getEstado());
+				/*Esta es la linea que se modifico para poder obtener el estado de pedido 
+				 *desde el servicio consumido y no de la base de datos local */
+				pedido.setEstado(restTemplateController.getEstadoDeFactura(pedido.getNo_pedido()));
 				pedido.setFecha(p.getFecha());
 				pedido.setImporte(p.getImporte());
 				pedido.setNo_pedido(p.getNo_pedido());
