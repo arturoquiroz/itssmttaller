@@ -17,5 +17,8 @@ Detalles de pedido
  - Mostrar todos
  - Mostrar uno
  
-Los cambios en cuanto al consumo de datos desde otras aplicaciones se encuentran
-en proceso aun.
+Consumo de servicios rest
+ - En la ultima actualizacion se agrego una clase "RestTemplatecontroller.java" 
+   que permite consumir un servicio desde otra aplicacion, como prueba se consumio 
+   uno de los servicios implementados por la propia aplicacion pero solo se requiere
+   cambiar la url para poder consumir servicios externos.
