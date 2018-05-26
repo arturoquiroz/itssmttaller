@@ -30,7 +30,7 @@ public class RestTemplateController {
 	/* 
 	 * Metodo creado para consultar mediante el id o folio, el estado de un pedido y obtener su valor en
 	 * el body de la respuesta*/
-	@GetMapping(value="/factura")
+	
 	public String getEstadoDeFactura(int id) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
